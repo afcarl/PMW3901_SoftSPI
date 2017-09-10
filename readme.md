@@ -4,17 +4,18 @@ Arduino driver for the Pixart PMW3901 optical flow sensor. The driver
 is developed to support the [Bitcraze Flow Breakout board](https://wiki.bitcraze.io/breakout:flow). 
 It communicates with the sensor using Software SPI.
 
-This library is a modification of the Bitcraze_PWM3901 library, for use with Software SPI instead
+This library is a modification of the [Bitcraze_PWM3901 library](https://github.com/bitcraze/Bitcraze_PMW3901), 
+for use with Software SPI instead
 of ordinay SPI.  If your microcontroller provides ordinary (hardware) SPI access, you should
 use the original Bitcraze library instead of this one.
 
+## Additional libraries required
+
+For SoftwareSPI support you should clone [this library](https://github.com/simondlevy/DigitalIO).
+
 ## Electrical connection
 
-The library is using the standard SPI library, the sensor MOSI, MISO and SCK
-should be connected to the arduino according to the [SPI library
-documentation](https://www.arduino.cc/en/Reference/SPI). The CS (chip select)
-pin can be any digital pin (which allows to connect more than one SPI sensor to
-your Arduino).
+MISO, MOSI, and SCK, and CS (chip select) can be any three digital pins.
 
 ## Usage
 
