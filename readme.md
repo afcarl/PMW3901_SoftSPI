@@ -15,7 +15,7 @@ For SoftwareSPI support you should clone [this library](https://github.com/simon
 
 ## Electrical connection
 
-MISO, MOSI, and SCK, and CS (chip select) can be any three digital pins.
+MISO, MOSI, and SCK, and CS (chip select) can be any four digital pins.
 
 ## Usage
 
