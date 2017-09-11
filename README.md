@@ -5,8 +5,7 @@ is developed to support the breakout boards from [Bitcraze](https://wiki.bitcraz
 and [Pesky Products](https://oshpark.com/shared_projects/autoGC8x).  It
 communicates with the sensor using Software SPI.  By using a header-only library we are able to 
 exploit the compile-time optimizations in the header-only
-[SoftSPI](https://github.com/simondlevy/DigitalIO/blob/master/src/SoftSPI.h)
-class.
+[SoftSPI](https://github.com/greiman/DigitalIO/blob/master/src/SoftSPI.h) class.
 
 This library is a modification of the [Bitcraze_PWM3901](https://github.com/bitcraze/Bitcraze_PMW3901) library.
 If your microcontroller provides ordinary (hardware) SPI access, you should use that original Bitcraze
@@ -14,7 +13,7 @@ library instead of this one.
 
 ## Additional libraries required
 
-For SoftwareSPI support you should clone the [DigitalIO](https://github.com/simondlevy/DigitalIO) library, which
+For SoftwareSPI support you should clone the [DigitalIO](https://github.com/greiman/DigitalIO) library, which
 provides the SoftSPI class.
 
 ## Electrical connection
