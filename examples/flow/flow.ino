@@ -23,16 +23,15 @@
 
 #include "PMW3901_SoftSPI.h"
 
-// SPI pins 
-static const uint8_t SOFT_SPI_MISO_PIN = 5;
-static const uint8_t SOFT_SPI_MOSI_PIN = 8;
-static const uint8_t SOFT_SPI_SCK_PIN  = 9;
+// Software SPI pins 
+static const uint8_t SOFT_MISO = 5;
+static const uint8_t SOFT_MOSI = 8;
+static const uint8_t SOFT_SCK  = 9;
 
 // Chip Select
 static const uint8_t CS = 10;
 
-// Using digital pin 10 for chip select
-PMW3901_SoftSPI<SOFT_SPI_MISO_PIN,SOFT_SPI_MOSI_PIN,SOFT_SPI_SCK_PIN> flow(CS);
+PMW3901_SoftSPI<SOFT_MISO,SOFT_MOSI,SOFT_SCK> flow(CS);
 
 void setup() 
 {
