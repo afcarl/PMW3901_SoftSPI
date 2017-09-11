@@ -21,7 +21,7 @@ MISO, MOSI, and SCK, and CS (chip select) can be any four digital pins.
 ## Usage
 
 In 
-<a href="https://github.com/simondlevy/PMW3901_SoftSPI/blob/master/src/PMW3901_SoftSPI.h#L29-L31">PWM3901_SoftSPI.h</a> modify the <b>MISO_PIN</b>, <b>MOSI_PIN</b>, and <b>SCK_PIN</b> values to match your wiring configuation.
+<a href="https://github.com/simondlevy/PMW3901_SoftSPI/blob/master/src/PMW3901_SoftSPI.h#L29-L32">PWM3901_SoftSPI.h</a> modify the <b>MISO_PIN</b>, <b>MOSI_PIN</b>, and <b>SCK_PIN</b> values to match your wiring configuation.
 
 Then look at the [flow](examples/flow/flow.ino) example for basic usage.
 
