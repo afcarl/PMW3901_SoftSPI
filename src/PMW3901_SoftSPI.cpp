@@ -36,10 +36,10 @@ PMW3901_SoftSPI::PMW3901_SoftSPI(uint8_t cspin)
 { }
 
 boolean PMW3901_SoftSPI::begin(void) {
+
   // Setup SPI port
   spi.begin();
   pinMode(_cs, OUTPUT);
-  //SPI.beginTransaction(SPISettings(2000000, MSBFIRST, SPI_MODE3));
 
   // Make sure the SPI bus is reset
   digitalWrite(_cs, HIGH);
@@ -48,8 +48,6 @@ boolean PMW3901_SoftSPI::begin(void) {
   delay(1);
   digitalWrite(_cs, HIGH);
   delay(1);
-
-  //SPI.endTransaction();
 
   // Power on reset
   registerWrite(0x3A, 0x5A);
@@ -87,8 +85,6 @@ void PMW3901_SoftSPI::readMotionCount(int16_t *deltaX, int16_t *deltaY)
 void PMW3901_SoftSPI::registerWrite(uint8_t reg, uint8_t value) {
   reg |= 0x80u;
 
-  //SPI.beginTransaction(SPISettings(2000000, MSBFIRST, SPI_MODE3));
-
   digitalWrite(_cs, LOW);
 
   delayMicroseconds(50);
@@ -98,15 +94,11 @@ void PMW3901_SoftSPI::registerWrite(uint8_t reg, uint8_t value) {
 
   digitalWrite(_cs, HIGH);
 
-  //SPI.endTransaction();
-
   delayMicroseconds(200);
 }
 
 uint8_t PMW3901_SoftSPI::registerRead(uint8_t reg) {
   reg &= ~0x80u;
-
-  //SPI.beginTransaction(SPISettings(2000000, MSBFIRST, SPI_MODE3));
 
   digitalWrite(_cs, LOW);
 
@@ -119,8 +111,6 @@ uint8_t PMW3901_SoftSPI::registerRead(uint8_t reg) {
   digitalWrite(_cs, HIGH);
 
   delayMicroseconds(200);
-
-  //SPI.endTransaction();
 
   return value;
 }

@@ -23,11 +23,13 @@
 #pragma once
 
 #include "Arduino.h"
-
+#include <DigitalIO.h>
 #include <stdint.h>
 
 class PMW3901_SoftSPI {
+
 public:
+
   PMW3901_SoftSPI(uint8_t cspin);
 
   boolean begin(void);
@@ -35,6 +37,7 @@ public:
   void readMotionCount(int16_t *deltaX, int16_t *deltaY);
 
 private:
+
   uint8_t _cs;
 
   void registerWrite(uint8_t reg, uint8_t value);
