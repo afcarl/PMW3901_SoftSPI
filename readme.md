@@ -5,9 +5,8 @@ is developed to support the breakout boards from [Bitcraze](https://wiki.bitcraz
 and [Pesky Products](https://oshpark.com/shared_projects/autoGC8x).  It
 communicates with the sensor using Software SPI.
 
-This library is a modification of the [Bitcraze_PWM3901 library](https://github.com/bitcraze/Bitcraze_PMW3901), 
-for use with Software SPI instead of ordinay SPI.  If your microcontroller
-provides ordinary (hardware) SPI access, you should use the original Bitcraze
+This library is a modification of the [Bitcraze_PWM3901 library](https://github.com/bitcraze/Bitcraze_PMW3901).
+If your microcontroller provides ordinary (hardware) SPI access, you should use that original Bitcraze
 library instead of this one.
 
 ## Additional libraries required
