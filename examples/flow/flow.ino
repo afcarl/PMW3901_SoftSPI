@@ -1,4 +1,4 @@
-/* flow.ino PMW3901 optical flow example
+/* flow.ino PMW3901_SoftSPI optical flow example
  *
  * Copyright (c) 2017 Bitcraze AB, Simon D. Levy
  *
@@ -36,7 +36,6 @@ PMW3901_SoftSPI<SOFT_SPI_MISO_PIN,SOFT_SPI_MOSI_PIN,SOFT_SPI_SCK_PIN> flow(CS);
 
 void setup() 
 {
-
   Serial.begin(115200);
 
   if (!flow.begin()) {
@@ -45,9 +44,10 @@ void setup()
   }
 }
 
-int16_t deltaX,deltaY;
+void loop() 
+{
+  int16_t deltaX,deltaY;
 
-void loop() {
   // Get motion count since last call
   flow.readMotionCount(&deltaX, &deltaY);
 
