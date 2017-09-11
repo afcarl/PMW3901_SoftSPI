@@ -24,13 +24,6 @@
 
 #include <DigitalIO.h>
 
-const uint8_t SOFT_SPI_MISO_PIN = 5;
-const uint8_t SOFT_SPI_MOSI_PIN = 8;
-const uint8_t SOFT_SPI_SCK_PIN  = 9;
-const uint8_t SPI_MODE = 3;
-
-SoftSPI<SOFT_SPI_MISO_PIN, SOFT_SPI_MOSI_PIN, SOFT_SPI_SCK_PIN, SPI_MODE> spi;
-
 PMW3901_SoftSPI::PMW3901_SoftSPI(uint8_t cspin)
   : _cs(cspin)
 { }
@@ -38,7 +31,7 @@ PMW3901_SoftSPI::PMW3901_SoftSPI(uint8_t cspin)
 boolean PMW3901_SoftSPI::begin(void) {
 
   // Setup SPI port
-  spi.begin();
+  _spi.begin();
   pinMode(_cs, OUTPUT);
 
   // Make sure the SPI bus is reset
@@ -88,8 +81,8 @@ void PMW3901_SoftSPI::registerWrite(uint8_t reg, uint8_t value) {
   digitalWrite(_cs, LOW);
 
   delayMicroseconds(50);
-  spi.transfer(reg);
-  spi.transfer(value);
+  _spi.transfer(reg);
+  _spi.transfer(value);
   delayMicroseconds(50);
 
   digitalWrite(_cs, HIGH);
@@ -103,9 +96,9 @@ uint8_t PMW3901_SoftSPI::registerRead(uint8_t reg) {
   digitalWrite(_cs, LOW);
 
   delayMicroseconds(50);
-  spi.transfer(reg);
+  _spi.transfer(reg);
   delayMicroseconds(50);
-  uint8_t value = spi.transfer(0);
+  uint8_t value = _spi.transfer(0);
   delayMicroseconds(200);
 
   digitalWrite(_cs, HIGH);
