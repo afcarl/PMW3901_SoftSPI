@@ -1,5 +1,5 @@
-/* PMW3901 Arduino driver
- * Copyright (c) 2017 Bitcraze AB
+/* PMW3901_SoftSPI.h
+ * Copyright (c) 2017 Bitcraze AB, Simon D. Levy
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -20,16 +20,15 @@
  * SOFTWARE.
  */
 
-#ifndef __BITCRAZE_PMW3901_H__
-#define __BITCRAZE_PMW3901_H__
+#pragma once
 
 #include "Arduino.h"
 
 #include <stdint.h>
 
-class Bitcraze_PMW3901 {
+class PMW3901_SoftSPI {
 public:
-  Bitcraze_PMW3901(uint8_t cspin);
+  PMW3901_SoftSPI(uint8_t cspin);
 
   boolean begin(void);
 
@@ -42,5 +41,3 @@ private:
   uint8_t registerRead(uint8_t reg);
   void initRegisters(void);
 };
-
-#endif //__BITCRAZE_PMW3901_H__

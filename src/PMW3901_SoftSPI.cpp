@@ -1,5 +1,5 @@
-/* PMW3901 Arduino driver
- * Copyright (c) 2017 Bitcraze AB
+/* PMW3901_SofSPI.cpp 
+ * Copyright (c) 2017 Bitcraze AB, Simon D. Levy
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to
@@ -20,9 +20,8 @@
  * SOFTWARE.
  */
 
-#include "Bitcraze_PMW3901.h"
+#include "PMW3901_SoftSPI.h"
 
-//#include <SPI.h>
 #include <DigitalIO.h>
 
 const uint8_t SOFT_SPI_MISO_PIN = 5;
@@ -32,11 +31,11 @@ const uint8_t SPI_MODE = 3;
 
 SoftSPI<SOFT_SPI_MISO_PIN, SOFT_SPI_MOSI_PIN, SOFT_SPI_SCK_PIN, SPI_MODE> spi;
 
-Bitcraze_PMW3901::Bitcraze_PMW3901(uint8_t cspin)
+PMW3901_SoftSPI::PMW3901_SoftSPI(uint8_t cspin)
   : _cs(cspin)
 { }
 
-boolean Bitcraze_PMW3901::begin(void) {
+boolean PMW3901_SoftSPI::begin(void) {
   // Setup SPI port
   spi.begin();
   pinMode(_cs, OUTPUT);
@@ -77,7 +76,7 @@ boolean Bitcraze_PMW3901::begin(void) {
 
 // Functional access
 
-void Bitcraze_PMW3901::readMotionCount(int16_t *deltaX, int16_t *deltaY)
+void PMW3901_SoftSPI::readMotionCount(int16_t *deltaX, int16_t *deltaY)
 {
   registerRead(0x02);
   *deltaX = ((int16_t)registerRead(0x04) << 8) | registerRead(0x03);
@@ -85,7 +84,7 @@ void Bitcraze_PMW3901::readMotionCount(int16_t *deltaX, int16_t *deltaY)
 }
 
 // Low level register access
-void Bitcraze_PMW3901::registerWrite(uint8_t reg, uint8_t value) {
+void PMW3901_SoftSPI::registerWrite(uint8_t reg, uint8_t value) {
   reg |= 0x80u;
 
   //SPI.beginTransaction(SPISettings(2000000, MSBFIRST, SPI_MODE3));
@@ -104,7 +103,7 @@ void Bitcraze_PMW3901::registerWrite(uint8_t reg, uint8_t value) {
   delayMicroseconds(200);
 }
 
-uint8_t Bitcraze_PMW3901::registerRead(uint8_t reg) {
+uint8_t PMW3901_SoftSPI::registerRead(uint8_t reg) {
   reg &= ~0x80u;
 
   //SPI.beginTransaction(SPISettings(2000000, MSBFIRST, SPI_MODE3));
@@ -127,7 +126,7 @@ uint8_t Bitcraze_PMW3901::registerRead(uint8_t reg) {
 }
 
 // Performance optimisation registers
-void Bitcraze_PMW3901::initRegisters()
+void PMW3901_SoftSPI::initRegisters()
 {
   registerWrite(0x7F, 0x00);
   registerWrite(0x61, 0xAD);
