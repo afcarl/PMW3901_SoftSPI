@@ -28,7 +28,7 @@ You can create a sensor by passing the chip select pin number:
 
 ``` C++
 // Using digital pin 10 for chip select
-Bitcraze_PMW3901 flow(10);
+PMW3901_SoftSPI flow(10);
 ```
 
 Initializing the sensor is done by calling *begin*, it returns *true* if the
