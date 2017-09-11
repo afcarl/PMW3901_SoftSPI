@@ -24,7 +24,7 @@
 #include "PMW3901_SoftSPI.h"
 
 // Software SPI pins 
-static const uint8_t SOFT_MISO = 5;
+static const uint8_t SOFT_MISO = 4;
 static const uint8_t SOFT_MOSI = 8;
 static const uint8_t SOFT_SCK  = 9;
 
