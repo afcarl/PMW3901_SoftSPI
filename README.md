@@ -23,17 +23,13 @@ MISO, MOSI, and SCK, and CS (chip select) can be any four digital pins.
 
 ## Usage
 
-In 
-<a href="https://github.com/simondlevy/PMW3901_SoftSPI/blob/master/src/PMW3901_SoftSPI.h#L29-L32">PWM3901_SoftSPI.h</a>
-modify the <b>MISO_PIN</b>, <b>MOSI_PIN</b>, and <b>SCK_PIN</b> values to match your wiring configuation.
+Look at the [flow](examples/flow/flow.ino) example for basic usage.
 
-Then look at the [flow](examples/flow/flow.ino) example for basic usage.
-
-You can create a sensor by passing the chip select pin number:
+You can create a sensor by using the MISO, MOSI and SCK values in the templated constructor and passing the chip select pin number:
 
 ``` C++
-// Using digital pin 10 for chip select
-PMW3901_SoftSPI flow(10);
+// Using digital pin 5 for MISO, 8 for MOSI, 9 for SCK, 10 for chip select
+PMW3901_SoftSPI<5,8,9> flow(10);
 ```
 
 Initializing the sensor is done by calling *begin*, it returns *true* if the
