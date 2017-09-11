@@ -8,13 +8,14 @@ exploit the compile-time optimizations in the header-only
 [SoftSPI](https://github.com/simondlevy/DigitalIO/blob/master/src/SoftSPI.h)
 class.
 
-This library is a modification of the [Bitcraze_PWM3901 library](https://github.com/bitcraze/Bitcraze_PMW3901).
+This library is a modification of the [Bitcraze_PWM3901](https://github.com/bitcraze/Bitcraze_PMW3901) library.
 If your microcontroller provides ordinary (hardware) SPI access, you should use that original Bitcraze
 library instead of this one.
 
 ## Additional libraries required
 
-For SoftwareSPI support you should clone [this library](https://github.com/simondlevy/DigitalIO).
+For SoftwareSPI support you should clone the [DigitalIO](https://github.com/simondlevy/DigitalIO) library, which
+provides the SoftSPI class.
 
 ## Electrical connection
 
