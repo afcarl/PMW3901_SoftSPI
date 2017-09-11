@@ -27,9 +27,9 @@
 #include <stdint.h>
 
 // Modify these for your hardware setup
-const uint8_t SOFT_SPI_MISO_PIN = 5;
-const uint8_t SOFT_SPI_MOSI_PIN = 8;
-const uint8_t SOFT_SPI_SCK_PIN  = 9;
+static const uint8_t SOFT_SPI_MISO_PIN = 5;
+static const uint8_t SOFT_SPI_MOSI_PIN = 8;
+static const uint8_t SOFT_SPI_SCK_PIN  = 9;
 
 class PMW3901_SoftSPI {
 
