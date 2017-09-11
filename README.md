@@ -25,7 +25,7 @@ MISO, MOSI, and SCK, and CS (chip select) can be any four digital pins.
 
 Look at the [flow](examples/flow/flow.ino) example for basic usage.
 
-You can create a sensor by using the MISO, MOSI and SCK values in the constructor template and passing the chip select pin number as an argument:
+You can create a sensor by using the MISO, MOSI and SCK values in the constructor template and passing the Chip Select pin number as an argument:
 
 ``` C++
 // Using digital pin 5 for MISO, 8 for MOSI, 9 for SCK, 10 for chip select
