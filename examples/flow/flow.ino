@@ -3,8 +3,10 @@
 // Using digital pin 10 for chip select
 PMW3901_SoftSPI flow(10);
 
-void setup() {
-  Serial.begin(9600);
+void setup() 
+{
+
+  Serial.begin(115200);
 
   if (!flow.begin()) {
     Serial.println("Initialization of the flow sensor failed");
